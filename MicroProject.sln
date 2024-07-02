@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniMicroProject.API", "MiniMicroProject.API\MiniMicroProject.API.csproj", "{09391584-F282-4CB6-ACBC-482B5A441B1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniMicroProject.MVC", "MiniMicroProject.MVC\MiniMicroProject.MVC.csproj", "{31573C5C-5653-4A15-A05E-66FC8BA41847}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09391584-F282-4CB6-ACBC-482B5A441B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09391584-F282-4CB6-ACBC-482B5A441B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09391584-F282-4CB6-ACBC-482B5A441B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09391584-F282-4CB6-ACBC-482B5A441B1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31573C5C-5653-4A15-A05E-66FC8BA41847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31573C5C-5653-4A15-A05E-66FC8BA41847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31573C5C-5653-4A15-A05E-66FC8BA41847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31573C5C-5653-4A15-A05E-66FC8BA41847}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
