@@ -8,7 +8,7 @@ namespace MiniMicroProject.API.Concrete
     {
         public Context(DbContextOptions<Context> options) : base(options)
         {
-
+            //Database path redirected to program.cs//
         }
 
         public DbSet<Products> Products { get; set; }
