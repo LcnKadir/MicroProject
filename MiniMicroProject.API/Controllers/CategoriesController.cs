@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MiniMicroProject.API.DTOs;
 using MiniMicroProject.API.Services;
 using MiniMicroProject.API.Services.Interface;
 
@@ -22,6 +23,29 @@ namespace MiniMicroProject.API.Controllers
             var value = await _categoriesService.GetAllAsync();
 
             return Ok(value);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CategoriesDto categoriesDto)
+        {
+            var value = await _categoriesService.CreateAsync(categoriesDto);
+
+            return Ok(value);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var value = await _categoriesService.GetByIdAsync(id);
+
+            return Ok(value);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            await _categoriesService.DeleteAsync(id);
+            return Ok();
         }
     }
 }
