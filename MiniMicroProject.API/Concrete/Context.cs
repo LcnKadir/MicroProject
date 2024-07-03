@@ -1,13 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MiniMicroProject.API.Models;
+using System;
 
 namespace MiniMicroProject.API.Concrete
 {
     public class Context : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public Context(DbContextOptions<Context> options) : base(options)
         {
-            optionsBuilder.UseSqlServer("Server=Kadir;Initial Catalog=ApiDb;Integrated Security=True;TrustServerCertificate=True");
+
         }
 
         public DbSet<Products> Products { get; set; }

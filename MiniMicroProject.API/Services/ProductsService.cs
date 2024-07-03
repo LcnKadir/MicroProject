@@ -36,7 +36,6 @@ namespace MiniMicroProject.API.Services
                 _context.Products.Remove(product);
                 await _context.SaveChangesAsync();
             }
-
         }
 
         public async Task<List<ProductsDto>> GetAllAsync()

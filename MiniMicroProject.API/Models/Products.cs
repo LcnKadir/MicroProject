@@ -2,15 +2,15 @@
 
 namespace MiniMicroProject.API.Models
 {
-    public class Products
+    public class Products : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string Order { get; set; } // a choice of how many months the product can be paid in installments.
         public string Picture { get; set; }
         public int CategoriesId { get; set; }
+        
         public Categories Categories { get; set; }
     }
 }
