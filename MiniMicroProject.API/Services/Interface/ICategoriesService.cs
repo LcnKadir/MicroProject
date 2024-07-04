@@ -7,7 +7,7 @@ namespace MiniMicroProject.API.Services.Interface
     {
         //Service was used to convert the data from the database directly into Dto.// 
         Task<IEnumerable<CategoriesDto>> GetAllAsync();
-        Task<CategoriesDto> CreateAsync(CategoriesDto categoriesDto);
+        Task<CreateCategoryDto> CreateAsync(CreateCategoryDto createCategoryDto);
         Task<CategoriesDto> GetByIdAsync(int id);
         Task DeleteAsync(int id);
     }

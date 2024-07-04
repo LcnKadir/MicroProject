@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}
+
+<style>
+    .card {
+        width: 200px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+</style>
+
+<div style="display: flex; align-items: flex-start;">
+    <div style="flex: 1; padding-right: 20px; border-right: 1px solid #ccc; ">
+        <h1>Kategoriler</h1>
+        <ul id="categories-list"></ul>
+    </div>
+
+    <div style="  flex: 3;max-width: 1000px; margin-left: 20px;">
+        <h1>Ürünler</h1>
+        <div id="products-list" style="  display: flex;flex-wrap: wrap; gap: 20px;"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Categories
+        fetch('/Products/GetCategories')
+            .then(response => response.json())
+            .then(data => {
+                const categoriesList = document.getElementById('categories-list');
+                data.forEach(category => {
+                    const li = document.createElement('li');
+                    li.textContent = category.name;
+                    li.setAttribute('data-category-id', category.id);
+                    li.addEventListener('click', function () {
+                        loadProducts(category.id); // Clicking on the category will bring only the products of that category.
+                    });
+                    categoriesList.appendChild(li);
+                });
+            });
+
+        // Products
+        function loadProducts(categoryId) {
+            fetch(`/Products/GetProducts?categoryId=${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const productsList = document.getElementById('products-list');
+                    productsList.innerHTML = ''; // Clear the product list.
+
+                    data.forEach(product => {
+                        const productCard = document.createElement('div');
+                        productCard.classList.add('card');
+
+                        const img = document.createElement('img');
+                        img.classList.add('card-img-top');
+                        img.src = product.imageUrl; 
+                        img.alt = product.name;
+                        productCard.appendChild(img);
+
+                        const cardBody = document.createElement('div');
+                        cardBody.classList.add('card-body');
+
+                        const title = document.createElement('h5');
+                        title.classList.add('card-title');
+                        title.textContent = product.name;
+                        cardBody.appendChild(title);
+
+                        const description = document.createElement('p');
+                        description.classList.add('card-text');
+                        description.textContent = product.description; 
+                        cardBody.appendChild(description);
+
+                        const link = document.createElement('a');
+                        link.classList.add('btn', 'btn-primary');
+                        link.href = '#'; 
+                        link.textContent = 'Go somewhere';
+                        cardBody.appendChild(link);
+
+                        productCard.appendChild(cardBody);
+                        productsList.appendChild(productCard);
+                    });
+                });
+        }
+    });
+</script>

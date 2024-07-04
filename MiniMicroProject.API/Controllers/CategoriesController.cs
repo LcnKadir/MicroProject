@@ -26,9 +26,9 @@ namespace MiniMicroProject.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CategoriesDto categoriesDto)
+        public async Task<IActionResult> Create(CreateCategoryDto createCategoryDto)
         {
-            var value = await _categoriesService.CreateAsync(categoriesDto);
+            var value = await _categoriesService.CreateAsync(createCategoryDto);
 
             return Ok(value);
         }

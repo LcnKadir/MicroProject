@@ -9,7 +9,9 @@ namespace MiniMicroProject.API.Mapping
         public GeneralMapping()
         {
             CreateMap<Categories, CategoriesDto>().ReverseMap();
+            CreateMap<Categories, CreateCategoryDto>().ReverseMap();
             CreateMap<Products, ProductsDto>().ReverseMap();
+            CreateMap<Products, CreateProductDto>().ReverseMap();
         }
     }
 }

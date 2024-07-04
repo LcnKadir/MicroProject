@@ -18,13 +18,13 @@ namespace MiniMicroProject.API.Services
             _mapper = mapper;
         }
 
-        public async Task<CategoriesDto> CreateAsync(CategoriesDto categoriesDto)
+        public async Task<CreateCategoryDto> CreateAsync(CreateCategoryDto createCategoryDto)
         {
-            var categories = _mapper.Map<Categories>(categoriesDto);
+            var categories = _mapper.Map<Categories>(createCategoryDto);
             _context.Categories.Add(categories);
 
             await _context.SaveChangesAsync();
-            return _mapper.Map<CategoriesDto>(categories);
+            return _mapper.Map<CreateCategoryDto>(categories);
         }
 
         public async Task DeleteAsync(int id)

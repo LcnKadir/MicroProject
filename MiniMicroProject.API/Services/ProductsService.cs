@@ -18,13 +18,13 @@ namespace MiniMicroProject.API.Services
             _mapper = mapper;
         }
 
-        public async Task<ProductsDto> CreateAsync(ProductsDto productsDto)
+        public async Task<CreateProductDto> CreateAsync(CreateProductDto productsDto)
         {
             var product = _mapper.Map<Products>(productsDto);
             _context.Products.Add(product);
 
             await _context.SaveChangesAsync();
-            return _mapper.Map<ProductsDto>(product);
+            return _mapper.Map<CreateProductDto>(product);
         }
 
         public async Task DeleteAsync(int id)
@@ -48,6 +48,13 @@ namespace MiniMicroProject.API.Services
         {
             var product = await _context.Products.FindAsync(id);
             return _mapper.Map<ProductsDto>(product);
+        }
+
+        public async Task<List<ProductsDto>> GetProductsByCategoryAsync(int categoryId)
+        {
+            var product = await _context.Products.Include(x => x.Categories).Where(x=> x.CategoriesId == categoryId).ToListAsync();
+
+            return _mapper.Map<List<ProductsDto>>(product);
         }
 
         public async Task<ProductsDto> UpdateAsync(ProductsDto productsDto)

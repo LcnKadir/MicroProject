@@ -25,9 +25,9 @@ namespace MiniMicroProject.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProductsDto  productsDto)
+        public async Task<IActionResult> Create(CreateProductDto createProductDto)
         {
-            var value = await _productsService.CreateAsync(productsDto);
+            var value = await _productsService.CreateAsync(createProductDto);
 
             return Ok(value);
         }
@@ -37,6 +37,13 @@ namespace MiniMicroProject.API.Controllers
         {
             var value = await _productsService.GetByIdAsync(id);
 
+            return Ok(value);
+        }
+
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetProductsByCategory(int id)
+        {
+            var value = await _productsService.GetProductsByCategoryAsync(id);
             return Ok(value);
         }
 
@@ -54,5 +61,6 @@ namespace MiniMicroProject.API.Controllers
             await _productsService.DeleteAsync(id);
             return Ok();
         }
+
     }
 }

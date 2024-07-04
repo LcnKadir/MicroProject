@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniMicroProject.API", "MiniMicroProject.API\MiniMicroProject.API.csproj", "{09391584-F282-4CB6-ACBC-482B5A441B1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniMicroProject.API", "MiniMicroProject.API\MiniMicroProject.API.csproj", "{09391584-F282-4CB6-ACBC-482B5A441B1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniMicroProject.MVC", "MiniMicroProject.MVC\MiniMicroProject.MVC.csproj", "{31573C5C-5653-4A15-A05E-66FC8BA41847}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniMicroProject.MVC", "MiniMicroProject.MVC\MiniMicroProject.MVC.csproj", "{31573C5C-5653-4A15-A05E-66FC8BA41847}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E262B721-9720-48AA-B4AB-F4287D3A4B74}"
+	ProjectSection(SolutionItems) = preProject
+		Portstxt.txt = Portstxt.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
